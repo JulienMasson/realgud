@@ -129,7 +129,7 @@ Nor does it touch prefix keys; for that see `realgud-populate-keys-standard'"
     (define-key map "C" 'realgud-window-cmd-undisturb-src)
     (define-key map "F" 'realgud:window-bt)
     (define-key map "Q" 'realgud:cmd-terminate)
-    (define-key map "S" 'realgud-window-src-undisturb-cmd)
+    (define-key map "S" 'realgud:cmd-skip)
     (define-key map "U" 'realgud:cmd-until)
 
     (define-key map [M-down]    'realgud-track-hist-newer)

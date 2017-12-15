@@ -111,6 +111,7 @@ with other motion initiated by debugger messages."
     (puthash "step"        "step %p" hash)
     (puthash "until"       "until" hash)
     (puthash "up"          "up %p" hash)
+    (puthash "skip"        "skip" hash)
     hash)
   "Default hash of command name → debugger command.
 This is used as a fallback when the debugger-specific command
@@ -366,6 +367,11 @@ With a numeric argument move that many levels back."
   "Drop to a shell."
   (interactive)
   (realgud:cmd-run-command nil "shell"))
+
+(defun realgud:cmd-skip ()
+  "Skip the current line."
+  (interactive)
+  (realgud:cmd-run-command nil "skip"))
 
 (defun realgud:cmd-step(&optional count)
     "Step one source line.
