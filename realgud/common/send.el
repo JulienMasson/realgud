@@ -226,11 +226,6 @@ debugger prompt.
     (unless cmd-buff
       (error "Can't find command buffer for buffer %s" (current-buffer)))
 
-    ;; Display the expanded command in the message area unless the
-    ;; current buffer is the command buffer.
-    (unless (realgud-cmdbuf?)
-      (message "Command: %s" command-str))
-
     (with-current-buffer cmd-buff
       (let* ((process (get-buffer-process cmd-buff))
 	     (last-output-end (point-marker))
