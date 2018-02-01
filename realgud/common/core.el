@@ -194,8 +194,7 @@ the buffer and data associated with it are already gone."
 (defun realgud-term-sentinel (process string)
   "Called when PROCESS dies. We call `realgud:terminate' to clean up."
   (let ((cmdbuf (realgud-get-cmdbuf)))
-    (if cmdbuf (realgud:terminate cmdbuf)))
-  (message "That's all folks.... %s" string))
+    (if cmdbuf (realgud:terminate cmdbuf))))
 
 (defun realgud:binary (file-name)
   "Return a whether FILE-NAME is executable or not or very large"
