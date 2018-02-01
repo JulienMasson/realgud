@@ -113,6 +113,8 @@ with other motion initiated by debugger messages."
     (puthash "until"       "until" hash)
     (puthash "up"          "up %p" hash)
     (puthash "skip"        "skip" hash)
+    (puthash "info args"   "info args" hash)
+    (puthash "info local"  "info local" hash)
     hash)
   "Default hash of command name → debugger command.
 This is used as a fallback when the debugger-specific command
@@ -380,6 +382,16 @@ With a numeric argument move that many levels back."
   "Skip the current line."
   (interactive)
   (realgud:cmd-run-command nil "skip"))
+
+(defun realgud:info-local ()
+  "Skip the current line."
+  (interactive)
+  (realgud:cmd-run-command nil "info local"))
+
+(defun realgud:info-args ()
+  "Skip the current line."
+  (interactive)
+  (realgud:cmd-run-command nil "info args"))
 
 (defun realgud:cmd-step(&optional count)
     "Step one source line.

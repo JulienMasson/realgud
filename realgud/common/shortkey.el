@@ -73,10 +73,13 @@
     (define-key map ">"        'realgud:cmd-older-frame)
     (define-key map "d"        'realgud:cmd-newer-frame)
     (define-key map "u"        'realgud:cmd-older-frame)
-    (define-key map "l"        'realgud-recenter-arrow)
     (define-key map "C"        'realgud-window-cmd-undisturb-src)
     (define-key map "I"        'realgud:cmdbuf-info-describe)
-    (define-key map "S"        'realgud:cmd-skip)
+
+    ;; perso
+    (define-key map "S" 'realgud:cmd-skip)
+    (define-key map "l" 'realgud:info-local)
+    (define-key map "a" 'realgud:info-args)
 
     (define-key map "R"        'realgud:cmd-restart)
     (define-key map "!"        'realgud:cmd-shell)

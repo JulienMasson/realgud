@@ -50,7 +50,6 @@
     (define-key map [return]  'realgud:follow-point)
     (define-key map [up]      'realgud-backtrace-moveto-frame-prev)
     (define-key map [down]    'realgud-backtrace-moveto-frame-next)
-    (define-key map "l"       'realgud-recenter-arrow)
 
     (define-key map [frames-menu]
       (list 'menu-item "Specific Frames" 'realgud:frames-menu))
@@ -65,7 +64,11 @@
     (define-key map "C"       'realgud-window-cmd-undisturb-src)
     (define-key map "F"       'realgud:window-bt)
     (define-key map "I"       'realgud:cmdbuf-info-describe)
-    (define-key map "S"       'realgud:cmd-skip)
+
+    ;; perso
+    (define-key map "S" 'realgud:cmd-skip)
+    (define-key map "l" 'realgud:info-local)
+    (define-key map "a" 'realgud:info-args)
 
     (define-key map "n"       'realgud-backtrace-moveto-frame-next)
     (define-key map "p"       'realgud-backtrace-moveto-frame-prev)
