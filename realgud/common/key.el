@@ -134,6 +134,7 @@ Nor does it touch prefix keys; for that see `realgud-populate-keys-standard'"
     (define-key map "S" 'realgud:cmd-skip)
     (define-key map "l" 'realgud:info-local)
     (define-key map "a" 'realgud:info-args)
+    (define-key map "h" 'realgud:cmd-until-here)
 
     (define-key map [M-down]    'realgud-track-hist-newer)
     (define-key map [M-kp-2]    'realgud-track-hist-newer)

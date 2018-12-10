@@ -111,6 +111,7 @@ with other motion initiated by debugger messages."
     (puthash "shell"       "shell" hash)
     (puthash "step"        "step %p" hash)
     (puthash "until"       "until" hash)
+    (puthash "until-here"  "until %l" hash)
     (puthash "up"          "up %p" hash)
     (puthash "skip"        "skip" hash)
     (puthash "info args"   "info args" hash)
@@ -182,6 +183,13 @@ With prefix argument LINE-NUMBER, prompt for line number."
   (interactive (realgud:cmd--line-number-from-prefix-arg))
   (realgud:cmd--with-line-override line-number
                                    (realgud:cmd-run-command line-number "break")))
+
+(defun realgud:cmd-until-here (&optional line-number)
+  "Continue until the current line.
+With prefix argument LINE-NUMBER, prompt for line number."
+  (interactive (realgud:cmd--line-number-from-prefix-arg))
+  (realgud:cmd--with-line-override line-number
+                                   (realgud:cmd-run-command line-number "until-here")))
 
 (defun realgud:cmd-clear(&optional line-number)
   "Delete breakpoint at the current line.
