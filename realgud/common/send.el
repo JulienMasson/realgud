@@ -145,7 +145,7 @@ taken from current buffer, or OPT-BUFFER if non-nil.  Some
 %p and %s are replaced by an empty string if OPT-STR is nil."
   (let* ((buffer (or opt-buffer (current-buffer)))
 	 (srcbuf (realgud-get-srcbuf buffer))
-	 (src-file-name (and srcbuf (buffer-file-name srcbuf)))
+	 (src-file-name (and srcbuf (untramp-path (buffer-file-name srcbuf))))
 	 result)
     (while (and fmt-str
 		(let ((case-fold-search nil))
