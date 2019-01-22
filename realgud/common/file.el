@@ -98,7 +98,7 @@ problem as best as we can determine."
             ;; else
             (let ((found-file (funcall realgud-file-find-function (point-marker) filename directory)))
                 (when found-file
-                  (setq remapped-filename (buffer-file-name found-file))
+                  (setq remapped-filename found-file)
                   (when (and remapped-filename (file-exists-p remapped-filename))
                     (puthash filename remapped-filename realgud-file-remap)
                     (setq filename remapped-filename)
