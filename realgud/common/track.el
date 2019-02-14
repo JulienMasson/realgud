@@ -227,8 +227,6 @@ evaluating (realgud-cmdbuf-info-loc-regexp realgud-cmdbuf-info)"
 	 (cmdbuf (or opt-cmdbuf (current-buffer)))
 	 )
     (unless (realgud:track-complain-if-not-in-cmd-buffer cmdbuf t)
-      (if (realgud:eval-command-p text)
-          (realgud:message-eval-results text))
 
 	(if (not (equal "" text))
 	    (with-current-buffer cmdbuf
