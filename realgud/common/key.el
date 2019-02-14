@@ -80,7 +80,6 @@ This variable can be bound to the following:
   (define-key map [M-print]   'realgud-track-hist-older)
   (define-key map [M-S-down]  'realgud-track-hist-newest)
   (define-key map [M-S-up]    'realgud-track-hist-oldest)
-  (define-key map "\C-c " 'realgud:cmd-break)
   )
 
 ;; TODO: add eclipse, and netbeans
