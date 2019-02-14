@@ -305,7 +305,7 @@ unshown."
 	  (if stay-in-cmdbuf?
 	      (let ((cmd-window (realgud-window-src-undisturb-cmd srcbuf)))
 		(if cmd-window (select-window cmd-window)))
-	    (realgud-window-src srcbuf)
+	    (realgud-track-switch-to-buffer srcbuf)
 	  )
 
 	  ;; Make sure source buffer is updated
@@ -334,6 +334,19 @@ unshown."
 (defun realgud-track-hist-oldest()
   (interactive)
   (realgud-track-hist-fn-internal 'realgud-loc-hist-oldest))
+
+(defun realgud-track-switch-to-buffer (buf)
+  (let ((gdb-shell-current-window (seq-find
+				   (lambda (buf)
+				     (eq buf (window-buffer)))
+				   (cl-remove-if-not #'realgud-cmdbuf? (buffer-list)))))
+    (if (and (not (get-buffer-window-list srcbuf))
+	     (not gdb-shell-current-window))
+      (switch-to-buffer srcbuf)
+      (if (and (eq (window-buffer) srcbuf)
+	       (not gdb-shell-current-window))
+	(switch-to-buffer srcbuf)
+      (switch-to-buffer-other-window srcbuf)))))
 
 (defun realgud-track-loc-action (loc cmdbuf &optional not-selected-frame
 				  shortkey-on-tracing?)
@@ -397,7 +410,7 @@ encountering a new loc."
 		))
 	  ; else
 	  (with-current-buffer srcbuf
-	    (realgud-window-src srcbuf)
+	    (realgud-track-switch-to-buffer srcbuf)
 	    (realgud-window-update-position srcbuf realgud-overlay-arrow1))
 	  ;; reset 'in-srcbuf' to allow the command buffer to keep point focus
 	  ;; when used directly. 'in-srcbuf' is set 't' early in the stack

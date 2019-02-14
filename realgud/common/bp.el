@@ -183,6 +183,9 @@ the current buffer."
             fringe-icon (cdr realgud-bp-fringe-indicator-style)))
     (let ((help-echo (format "%s%s: mouse-1 to clear" bp-text bp-num)))
       (setq bp-text (propertize bp-text 'help-echo help-echo)))
+
+    (realgud-track-switch-to-buffer (or buf (current-buffer)))
+
     (with-current-buffer (or buf (current-buffer))
       (realgud-bp-remove-icons pos (1+ pos) bp-num)
       (let* ((eol (save-excursion (goto-char pos) (point-at-eol)))
